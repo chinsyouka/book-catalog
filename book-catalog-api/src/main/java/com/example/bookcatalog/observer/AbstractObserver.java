@@ -1,10 +1,18 @@
 package com.example.bookcatalog.observer;
 
+import com.example.bookcatalog.strategy.StrategyFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * Abstract Observer
  * 抽象观察者类
  */
+@Slf4j
 public abstract class AbstractObserver {
+
+    @Autowired
+    private StrategyFactory strategyFactory;
 
     /**
      * 更新方法 - 当被观察对象状态改变时调用
@@ -27,6 +35,7 @@ public abstract class AbstractObserver {
      * @param action 动作描述
      */
     protected void doAction(String action) {
-        System.out.println("Observer [" + getType() + "] executing: " + action);
+        log.info("Observer [{}] executing: {}", getType(), action);
+        strategyFactory.getStrategy(getType()).process(action);
     }
 }

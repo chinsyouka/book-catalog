@@ -1,7 +1,9 @@
 package com.example.bookcatalog.service.impl;
 
 import com.example.bookcatalog.entity.BookEntity;
+import com.example.bookcatalog.observer.BookSubscriber;
 import com.example.bookcatalog.service.BookService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +19,10 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
+
+    private final BookSubscriber bookSubscriber;
 
     // 使用内存存储模拟数据库
     private final Map<Long, BookEntity> bookStore = new ConcurrentHashMap<>();
@@ -49,6 +54,9 @@ public class BookServiceImpl implements BookService {
         bookStore.put(id, book);
         
         log.info("书籍创建成功, ID: {}", id);
+
+        bookSubscriber.notifyAllObservers("Book created: " + book.getId());
+
         return book;
     }
 
@@ -70,6 +78,7 @@ public class BookServiceImpl implements BookService {
         bookStore.put(book.getId(), book);
         
         log.info("书籍更新成功, ID: {}", book.getId());
+        bookSubscriber.notifyAllObservers("Book updated: " + book.getId());
         return book;
     }
 
@@ -80,6 +89,7 @@ public class BookServiceImpl implements BookService {
         BookEntity removed = bookStore.remove(id);
         if (removed != null) {
             log.info("书籍删除成功, ID: {}, 书名: {}", id, removed.getName());
+            bookSubscriber.notifyAllObservers("Book deleted: " + id);
         } else {
             log.warn("书籍不存在, ID: {}", id);
         }

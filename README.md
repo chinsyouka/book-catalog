@@ -39,14 +39,16 @@ Build a “Book Catalog Service”: a Spring Boot microservice that allows clien
 创建抽象类AbstractSubscriber,抽象方法为add(Observer),remove(Observer),notifyAllObservers. 并添加内部共通方法do.
 
 ### 基于策略的模版方法Abstract
-根据抽象类AbstractObserver.getType的值构建策略模式,类名以Strategy结尾, 继承AbstractStrategy.
+根据抽象类AbstractObserver.getObserverType的值构建策略模式,类名以Strategy结尾, 继承AbstractStrategy.
 AbstractStrategy带有抽象方法process.
-创建策略类的工厂类名以StrategyFactory结尾, 类初始化的时候将所有策略类实例化,并保存在map中,key为观察者的getType的值,value为策略类实例.
+创建策略类的工厂类名以StrategyFactory结尾, 类初始化的时候将所有策略类实例化,并保存在map中,key为观察者的getObserverType的值,value为策略类实例.
+各strategy类通过list来注入spring环境,将strategyMap的初始化与注入放到BookCatalogConfiguration中
 
 ### api controller 层
 创建api controller层,类名以Controller结尾, 需要包含CRUD的方法，并且符合RESTful风格
 
 ## prompt for testing
-
+对service包内的类方法创建单元测试类,类名以Test结尾
+创建api controller层单元测试类,类名以ControllerTest结尾
 
 
