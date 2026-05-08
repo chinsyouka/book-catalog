@@ -49,6 +49,7 @@ AbstractStrategy带有抽象方法process.
 
 ## prompt for testing
 对service包内的类方法创建单元测试类,类名以Test结尾
+对observer包内的类方法创建单元测试类,类名以Test结尾
 创建api controller层单元测试类,类名以ControllerTest结尾
 
 
