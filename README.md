@@ -45,7 +45,7 @@ AbstractStrategy带有抽象方法process.
 各strategy类通过list来注入spring环境,将strategyMap的初始化与注入放到BookCatalogConfiguration中
 
 ### api controller 层
-创建api controller层,类名以Controller结尾, 需要包含CRUD的方法，并且符合RESTful风格
+根据BookService创建api controller层,类名以Controller结尾, 需要包含CRUD的方法，并且符合RESTful风格
 
 ## prompt for testing
 对service包内的类方法创建单元测试类,类名以Test结尾
