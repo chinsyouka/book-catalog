@@ -24,6 +24,10 @@ Build a “Book Catalog Service”: a Spring Boot microservice that allows clien
 - 消息中间件: kafka
 - 测试: junit5,mockito
 
+### micro service configurations (if use zookeeper to deploy micro service,then skip this prompt)
+为本项目添加nacos配置.
+为本项目service层添加dubbo配置.
+
 ### 微服务service层
 创建实体类,类名以Entity结尾 :
 - Book(id,name,price,author,catalogId,createTime,updateTime)
@@ -53,7 +57,5 @@ AbstractStrategy带有抽象方法process.
 对observer包内的类方法创建单元测试类,类名以Test结尾
 创建api controller层单元测试类,类名以ControllerTest结尾
 
-## micro service configurations
-为本项目添加nacos配置.
-为本项目service层添加dubbo配置.
+
 
