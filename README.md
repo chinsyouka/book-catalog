@@ -12,6 +12,13 @@ Build a “Book Catalog Service”: a Spring Boot microservice that allows clien
 
 提交：请以github链接的形式提交，方便查看，谢谢配合。
 
+
+## 本次test均使用lingma（AI assistant）的qwen模型配合chat bot形式生成代码
+
+## 如果需要用codex-cli全自动化skill，主要为  
+- npx skills add https://github.com/github/awesome-copilot --skill java-springboot
+
+
 ## prompt for building
 ### framework
 当前目录下创建j2ee微服务framework,包名为com.example.bookcatalog,以下需要依赖的包的要求
