@@ -15,10 +15,6 @@ Build a “Book Catalog Service”: a Spring Boot microservice that allows clien
 
 ## 本次test均使用lingma（AI assistant）的qwen模型配合chat bot形式生成代码
 
-## 如果需要用codex-cli全自动化skill，主要为  
-- npx skills add https://github.com/github/awesome-copilot --skill java-springboot
-
-
 ## prompt for building
 ### framework
 当前目录下创建j2ee微服务framework,包名为com.example.bookcatalog,以下需要依赖的包的要求
@@ -65,4 +61,8 @@ AbstractStrategy带有抽象方法process.
 创建api controller层单元测试类,类名以ControllerTest结尾
 
 
+## 运用扩展
+### 如果需要用codex-cli全自动化skill，主要为
+- npx skills add https://github.com/github/awesome-copilot --skill java-springboot
 
+#### 如果需要将prompt作为Agent的提示template，那么可以将包名、实体类DDL作为最小输入参数。
